@@ -29,29 +29,18 @@ public class StudentsResource {
 	}
 	
 	
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Student> getStudentsByPrograme(@QueryParam("program") String program) {
-//		
-//		if (program == null) {
-//			return studentService.getAllStudents();
-//		}
-//		return studentService.getStudentsByPrograme(program);
-//		
-//	}
-	
-	// ... webapi/student/1 
+	// ... webapi/students/..
 	@GET
 	@Path("/{studentId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Student getStudent(@PathParam("studentId") long studentId) {
+	public Student getStudent(@PathParam("studentId") String studentId) {
 		return studentService.getStudent(studentId);
 	}
 	
 	@DELETE
 	@Path("/{studentId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Student deleteStudent(@PathParam("studentId") long studentId) {
+	public Student deleteStudent(@PathParam("studentId") String studentId) {
 		return studentService.deleteStudent(studentId);
 	}
 	
@@ -66,13 +55,13 @@ public class StudentsResource {
 	@Path("/{studentId}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Student updateStudent(@PathParam("studentId") long studentId, 
+	public Student updateStudent(@PathParam("studentId") String studentId, 
 			Student student) {
 		return studentService.updateStudentInformation(studentId, student);
 	}
 	
 	// Adding a student
-	public void addStudent(String name, String programName) {
-		studentService.addStudent(name, programName);
-	}
+//	public void addStudent(String name, String programName) {
+//		studentService.addStudent(name, programName);
+//	}
 }
