@@ -1,10 +1,10 @@
 Github Link: https://github.com/xxzhou9119/StudentInformationSystem
 
-Elastic Beanstalk: http://xxzhou.us-east-2.elasticbeanstalk.com
+Elastic Beanstalk: http://studentinformationsystems-env.ye3ct3gm25.us-east-1.elasticbeanstalk.com/
 
 GET:   .. /webapi/professors
 
-​          .. /webapi/students
+          .. /webapi/students
 
 POST: ../webapi/professors
 

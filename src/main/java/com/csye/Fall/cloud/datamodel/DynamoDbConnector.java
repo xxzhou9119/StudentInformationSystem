@@ -1,5 +1,6 @@
 package com.csye.Fall.cloud.datamodel;
 
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -10,8 +11,10 @@ public class DynamoDbConnector {
  
 	 public static void init() {
 		if (dynamoDb == null) {
-		ProfileCredentialsProvider credentialsProvider = new ProfileCredentialsProvider();
+//		ProfileCredentialsProvider credentialsProvider = new ProfileCredentialsProvider();
+		 DefaultAWSCredentialsProviderChain credentialsProvider = DefaultAWSCredentialsProviderChain.getInstance();
 		credentialsProvider.getCredentials();
+		
 		
 		dynamoDb = AmazonDynamoDBClientBuilder
 					.standard()
