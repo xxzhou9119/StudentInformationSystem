@@ -5,15 +5,15 @@ Elastic Beanstalk: http://studentinformationsystems-env.ye3ct3gm25.us-east-1.ela
 Professor
 1. GET
 
-  webapi/professors/
+  ...webapi/professors/
 
-       webapi/professors/{professorid}  (webapi/professors/cc.J )
+ ...webapi/professors/{professorid}  (...webapi/professors/cc.J )
 
 2. POST
 
-  webapi/professors/
+  ...webapi/professors/
 
-     body:
+ body:
 
    {
 
@@ -26,7 +26,7 @@ Professor
 
 3.PUT
 
-webapi/professors/{professorid}  (webapi/professors/zhou.A )
+...webapi/professors/{professorid}  (...webapi/professors/zhou.A )
 
 body:
 
@@ -46,20 +46,20 @@ body:
 
 4.DELETE
 
-webapi/professors/{professorid}  (webapi/professors/zhou.A )
+...webapi/professors/{professorid}  (...webapi/professors/zhou.A )
 
 Course
 1. GET
 
-  webapi/courses/
+  ...webapi/courses/
 
-  webapi/courses/{courseid} (webapi/courses/001)
+  ...webapi/courses/{courseid} (...webapi/courses/001)
 
 2. POST
 
-  webapi/courses/
+  ...webapi/courses/
 
-      body:
+  body:
 
 {
 
@@ -86,7 +86,7 @@ Course
 }
 
 3.PUT
-webapi/courses/{courseid}  (webapi/courses/003)
+...webapi/courses/{courseid}  (...webapi/courses/003)
 
 body:
 
@@ -112,5 +112,50 @@ body:
 }
 
 4.DELETE
-webapi/courses/{courseid}  (webapi/courses/003)
+...webapi/courses/{courseid}  (...webapi/courses/003)
 
+
+
+Announcement
+
+1. GET
+
+   ...webapi/announcements/
+
+...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-01)
+
+1. POST
+
+   ...webapi/announcements/
+
+ body:
+
+ {
+
+​    "announcementId": "02",
+
+​    "announcementText": "aaaaaaaaaaaa",
+
+​    "boardId": "002"
+
+}
+
+3.PUT
+
+...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-02)
+
+body:
+
+{
+
+​    "announcementId": "02",
+
+​    "announcementText": "bbbbbbbbbbbbbbb",
+
+​    "boardId": "002"
+
+}
+
+4.DELETE
+
+...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-02)
