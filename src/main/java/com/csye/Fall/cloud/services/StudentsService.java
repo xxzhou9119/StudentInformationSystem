@@ -85,11 +85,11 @@ public class StudentsService {
 		Student oldStu = null;
 		if(list.size() != 0) {
 			oldStu = list.get(0);
-			mapper.save(oldStu);
 			oldStu.setFirstName(student.getFirstName());
 			oldStu.setLastName(student.getLastName());
 			oldStu.setDepartment(student.getDepartment());
 			oldStu.setCourseIds(student.getCourseIds());
+            mapper.save(oldStu);
 			
 			System.out.println("Item updated.");
 		}
