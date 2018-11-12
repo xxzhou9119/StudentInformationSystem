@@ -2,17 +2,18 @@ Github Link: https://github.com/xxzhou9119/StudentInformationSystem
 
 Elastic Beanstalk: http://studentinformationsystems-env.ye3ct3gm25.us-east-1.elasticbeanstalk.com/
 
-<Professor>
+Professor
 1. GET
-webapi/professors/
 
-​       webapi/professors/{professorid}  (webapi/professors/cc.J )
+  webapi/professors/
+
+       webapi/professors/{professorid}  (webapi/professors/cc.J )
 
 2. POST
 
   webapi/professors/
 
-​     body:
+     body:
 
    {
 
@@ -24,6 +25,7 @@ webapi/professors/
 }
 
 3.PUT
+
 webapi/professors/{professorid}  (webapi/professors/zhou.A )
 
 body:
@@ -43,18 +45,21 @@ body:
 }
 
 4.DELETE
+
 webapi/professors/{professorid}  (webapi/professors/zhou.A )
 
-<Course>
+Course
 1. GET
+
   webapi/courses/
+
   webapi/courses/{courseid} (webapi/courses/001)
 
 2. POST
 
   webapi/courses/
 
-​      body:
+      body:
 
 {
 
@@ -102,6 +107,7 @@ body:
 "003"
 
 ],
+
 "studentTaId": "zhou.a"
 }
 
