@@ -9,7 +9,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-
+import com.csye.Fall.cloud.EmailAnnouncement;
+import com.csye.Fall.cloud.datamodel.Board;
 import com.csye.Fall.cloud.datamodel.Course;
 import com.csye.Fall.cloud.datamodel.DynamoDbConnector;
 
@@ -39,6 +40,7 @@ public class CourseService {
 	
 	// Adding a course
 	public Course addCourse(Course course) {
+		String topicArn = EmailAnnouncement.createTopic("course"+course.getCourseId());
 	    Course course2 = new Course();
 	    course2.setCourseId(course.getCourseId());
 	    course2.setBoradId(course.getBoradId());
@@ -46,7 +48,13 @@ public class CourseService {
 	    course2.setProfessorId(course.getProfessorId());
 	    course2.setStudentTaId(course.getStudentTaId());
 	    course2.setStudentIds(course.getStudentIds());
+	    course2.setSNSTopicArn(topicArn);
 		mapper.save(course2);
+		
+		//add corresponding board to database
+		Board board = new Board(course2.getBoradId(),course2.getCourseId());
+		BoardService boardSer = new BoardService();
+		boardSer.addBoard(board);
 			
 		System.out.println("Item added:");
 		System.out.println(course2.toString());
@@ -89,7 +97,8 @@ public class CourseService {
 				oldCourse.setProfessorId(course.getProfessorId());
 				oldCourse.setStudentTaId(course.getStudentTaId());
 				oldCourse.setStudentIds(course.getStudentIds());
-
+                oldCourse.setSNSTopicArn(course.getSNSTopicArn());
+                
 				mapper.save(oldCourse);
 				System.out.println("Item updated:");
 			    System.out.println(oldCourse.toString());

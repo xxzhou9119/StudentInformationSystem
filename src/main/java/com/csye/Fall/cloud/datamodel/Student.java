@@ -19,7 +19,10 @@ public class Student {
 	private List<String> courseIds;
 //	private Image image;
 	private String department;
+	private String emailId;
 	
+	
+
 	public Student() {
 		
 	}
@@ -80,6 +83,16 @@ public class Student {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
+	
+	@DynamoDBAttribute(attributeName="emailId")
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	
 	
 	public void addCourse(String courseId) {
 		this.courseIds.add(courseId);

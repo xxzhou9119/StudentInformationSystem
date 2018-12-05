@@ -10,6 +10,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.csye.Fall.cloud.EmailAnnouncement;
 
 
 @DynamoDBTable(tableName="Courses")
@@ -21,7 +22,7 @@ public class Course {
 	private String department;
 	private String boradId;
 	private List<String> studentIds;
-
+    private String snsTopicArn;
 	
 	public Course() {
 		
@@ -85,10 +86,23 @@ public class Course {
 	public List<String> getStudentIds() {
 		return studentIds;
 	}
-
+	
 	public void setStudentIds(List<String> studentIds) {
 		this.studentIds = studentIds;
 	}
+
+	@DynamoDBAttribute(attributeName="snsTopicArn")
+	public String getSNSTopicArn() {
+		return snsTopicArn;
+	}
+
+	
+	public void setSNSTopicArn(String snsTopicArn) {
+		this.snsTopicArn = snsTopicArn;
+	}
+
+
+	
 	
    
 	@DynamoDBIgnore

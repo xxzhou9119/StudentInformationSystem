@@ -9,6 +9,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.csye.Fall.cloud.EmailAnnouncement;
 import com.csye.Fall.cloud.datamodel.Course;
 import com.csye.Fall.cloud.datamodel.DynamoDbConnector;
 import com.csye.Fall.cloud.datamodel.InMemoryDatabase;
@@ -47,6 +48,7 @@ public class StudentsService {
 //		prof.setJoiningDate(joiningDate);
 		stu.setStudentId(student.getLastName() + "." + student.getFirstName().charAt(0));
 		stu.setCourseIds(student.getCourseIds());
+		stu.setEmailId(student.getEmailId());
 		mapper.save(stu);
 		
 		System.out.println("Item added.");
@@ -89,12 +91,36 @@ public class StudentsService {
 			oldStu.setLastName(student.getLastName());
 			oldStu.setDepartment(student.getDepartment());
 			oldStu.setCourseIds(student.getCourseIds());
-            mapper.save(oldStu);
+			oldStu.setEmailId(student.getEmailId());
+			mapper.save(oldStu);
 			
 			System.out.println("Item updated.");
 		}
 		
 		return oldStu;
+	}
+	
+	// register for a course 
+	public Student registerCourse(String studentId, Course course){
+		List<Student> list = getStudentFromDDB(studentId);
+		CourseService courseSer = new CourseService();
+		Student stu = null;
+		if(list.size() != 0) {
+			stu = list.get(0);
+			
+			if(stu.getCourseIds().size() < 3) {
+				stu.getCourseIds().add(course.getCourseId());
+				course.getStudentIds().add(studentId);
+				
+				// update information in database
+				updateStudentInformation(studentId,stu);
+				courseSer.updateCourseInformation(course.getCourseId(), course);
+				
+				EmailAnnouncement.subscribe(course.getSNSTopicArn(), stu.getEmailId());
+			}
+		}
+		
+		return stu;
 	}
 	
 	// Get students in a department 

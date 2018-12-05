@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import com.csye.Fall.cloud.datamodel.Course;
 import com.csye.Fall.cloud.datamodel.Student;
 import com.csye.Fall.cloud.services.StudentsService;
 
@@ -58,6 +59,14 @@ public class StudentsResource {
 	public Student updateStudent(@PathParam("studentId") String studentId, 
 			Student student) {
 		return studentService.updateStudentInformation(studentId, student);
+	}
+	
+	@POST
+	@Path("/{studentId}/register")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Student registerCourse(@PathParam("studentId") String studentId, Course course) {
+			return studentService.registerCourse(studentId, course);
 	}
 	
 	// Adding a student
