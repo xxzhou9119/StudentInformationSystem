@@ -46,7 +46,7 @@ body:
 {
         "courseIds": [],
 
-        "department": "info",
+​        "department": "info",
 
         "emailId": YOUR TESTEMAIL,
 
@@ -63,9 +63,11 @@ body:
 body
 
  {
-        "SNSTopicArn": "arn:aws:sns:us-east-1:599961460399:course004",
+      
 
-        "boradId": "004",
+​      "SNSTopicArn": "arn:aws:sns:us-east-1:599961460399:course004",
+
+​       "boradId": "004",
 
         "courseId": "004",
 
@@ -75,11 +77,11 @@ body
 
         "professorId": "a.x",
 
-​        "studentIds": [
+        "studentIds": [
 
-​            "z.x"
+            "z.x"
 
-​        ],
+        ],
 
         "studentTaId": "liu.a"
 
@@ -103,11 +105,11 @@ Announcement
 
  {
 
-​    "announcementId": "06",
+    "announcementId": "06",
 
-​    "announcementText": "aaaaaaaaaaaa",
+    "announcementText": "aaaaaaaaaaaa",
 
-​    "boardId": "004" 
+    "boardId": "004" 
 
 }
 
