@@ -1,52 +1,8 @@
 Github Link: https://github.com/xxzhou9119/StudentInformationSystem
 
-Elastic Beanstalk: http://studentinformationsystems-env.ye3ct3gm25.us-east-1.elasticbeanstalk.com/
+Elastic Beanstalk：http://studentinformationsystems-env.ye3ct3gm25.us-east-1.elasticbeanstalk.com/
 
-Professor
-1. GET
 
-  ...webapi/professors/
-
- ...webapi/professors/{professorid}  (...webapi/professors/cc.J )
-
-2. POST
-
-  ...webapi/professors/
-
- body:
-
-   {
-
-  "department": "engineer",
-
-  "firstName": "Ann",
-
-  "lastName": "zhou"
-}
-
-3.PUT
-
-...webapi/professors/{professorid}  (...webapi/professors/zhou.A )
-
-body:
-
-{
-
-"department": "engineer",
-
-"firstName": "Ann",
-
-"id": "e4ee8a36-8a7a-4754-ad4b-398069b631fb",
-
-"lastName": "zhang",
-
-"professorId": "zhou.A"
-
-}
-
-4.DELETE
-
-...webapi/professors/{professorid}  (...webapi/professors/zhou.A )
 
 Course
 1. GET
@@ -63,56 +19,55 @@ Course
 
 {
 
-"boradId": "03",
+"boradId": "007",
 
-"courseId": "003",
+"courseId": "007",
 
 "department": "info",
 
 "professorId": "a.x",
 
-"studentIds": [
-
-"001",
-
-"002",
-
-"003"
-
-],
+"studentIds": [],
 
 "studentTaId": "liu.a"
 
 }
 
-3.PUT
-...webapi/courses/{courseid}  (...webapi/courses/003)
+
+
+Student
+
+POST
+
+...webapi/students/
 
 body:
 
 {
+        "courseIds": [],
+        "department": "info",
+        "emailId": YOUR TESTEMAIL,
+        "firstName": "san",
+        "lastName": "zhang",
+        "studentId": "zhang.s"
+    }
 
-"boradId": "03",
+...webapi/students/zhang.s/register
 
-"department": "info",
+body
 
-"professorId": "a.x",
-
-"studentIds": [
-
-"001",
-
-"002",
-
-"003"
-
-],
-
-"studentTaId": "zhou.a"
-}
-
-4.DELETE
-...webapi/courses/{courseid}  (...webapi/courses/003)
+ {
+        "SNSTopicArn": "arn:aws:sns:us-east-1:599961460399:course004",
+        "boradId": "004",
+        "courseId": "004",
+        "department": "info",
+        "id": "457aa757-7236-4224-8dcc-003aaaa99349",
+        "professorId": "a.x",
+        "studentIds": [
+            "z.x"
+        ],
+        "studentTaId": "liu.a"
+    }
 
 
 
@@ -122,40 +77,23 @@ Announcement
 
    ...webapi/announcements/
 
-...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-01)
+...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/004-02)
 
-1. POST
+2. POST
 
-   ...webapi/announcements/
+...webapi/announcements/
 
  body:
 
  {
 
-​    "announcementId": "02",
+    "announcementId": "06",
 
-​    "announcementText": "aaaaaaaaaaaa",
+    "announcementText": "aaaaaaaaaaaa",
 
-​    "boardId": "002"
-
-}
-
-3.PUT
-
-...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-02)
-
-body:
-
-{
-
-​    "announcementId": "02",
-
-​    "announcementText": "bbbbbbbbbbbbbbb",
-
-​    "boardId": "002"
+    "boardId": "004"
 
 }
 
-4.DELETE
 
-...webapi/announcements/{boardId}-{announcementId}  (...webapi/announcements/002-02)
+
