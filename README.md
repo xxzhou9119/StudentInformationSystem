@@ -46,17 +46,17 @@ body:
 {
         "courseIds": [],
 
-​        "department": "info",
+        "department": "info",
 
-​        "emailId": YOUR TESTEMAIL,
+        "emailId": YOUR TESTEMAIL,
 
-​        "firstName": "san",
+        "firstName": "san",
 
-​        "lastName": "zhang",
+        "lastName": "zhang",
 
-​        "studentId": "zhang.s"
+        "studentId": "zhang.s"
 
-​    }
+    }
 
 ...webapi/students/zhang.s/register
 
@@ -65,23 +65,25 @@ body
  {
         "SNSTopicArn": "arn:aws:sns:us-east-1:599961460399:course004",
 
-​        "boradId": "004",
+        "boradId": "004",
 
-​        "courseId": "004",
+        "courseId": "004",
 
-​        "department": "info",
+        "department": "info",
 
-​        "id": "457aa757-7236-4224-8dcc-003aaaa99349",
+        "id": "457aa757-7236-4224-8dcc-003aaaa99349",
 
-​        "professorId": "a.x",
+        "professorId": "a.x",
 
-        "studentIds": [
-            "z.x"
-        ],
+​        "studentIds": [
 
-​        "studentTaId": "liu.a"
+​            "z.x"
 
-​    }
+​        ],
+
+        "studentTaId": "liu.a"
+
+    }
 
 
 
@@ -103,7 +105,7 @@ Announcement
 
 ​    "announcementId": "06",
 
-    "announcementText": "aaaaaaaaaaaa",
+​    "announcementText": "aaaaaaaaaaaa",
 
 ​    "boardId": "004" 
 
