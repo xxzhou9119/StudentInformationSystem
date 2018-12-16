@@ -1,4 +1,4 @@
-package com.csye.Fall.cloud.datamodel;
+package com.amazonaws.lambda.demo.datamodel;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.csye.Fall.cloud.EmailAnnouncement;
+
 
 
 @DynamoDBTable(tableName="Courses")
@@ -102,8 +102,6 @@ public class Course {
 	}
 
 
-	
-	
    
 	@DynamoDBIgnore
 	@Override

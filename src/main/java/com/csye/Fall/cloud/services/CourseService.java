@@ -43,7 +43,7 @@ public class CourseService {
 		String topicArn = EmailAnnouncement.createTopic("course"+course.getCourseId());
 	    Course course2 = new Course();
 	    course2.setCourseId(course.getCourseId());
-	    course2.setBoradId(course.getBoradId());
+	    course2.setBoardId(course.getBoardId());
 	    course2.setDepartment(course.getDepartment());
 	    course2.setProfessorId(course.getProfessorId());
 	    course2.setStudentTaId(course.getStudentTaId());
@@ -52,9 +52,11 @@ public class CourseService {
 		mapper.save(course2);
 		
 		//add corresponding board to database
-		Board board = new Board(course2.getBoradId(),course2.getCourseId());
-		BoardService boardSer = new BoardService();
-		boardSer.addBoard(board);
+		if(!course.getBoardId().equals("")) {
+			Board board = new Board(course2.getBoardId(),course2.getCourseId());
+			BoardService boardSer = new BoardService();
+			boardSer.addBoard(board);
+		}
 			
 		System.out.println("Item added:");
 		System.out.println(course2.toString());
@@ -92,7 +94,7 @@ public class CourseService {
 			Course oldCourse = null;
 			if(list.size() != 0) {
 				oldCourse = list.get(0);
-				oldCourse.setBoradId(course.getBoradId());
+				oldCourse.setBoardId(course.getBoardId());
 				oldCourse.setDepartment(course.getDepartment());
 				oldCourse.setProfessorId(course.getProfessorId());
 				oldCourse.setStudentTaId(course.getStudentTaId());
