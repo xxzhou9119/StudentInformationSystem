@@ -150,38 +150,69 @@ For BONUS:
 In the original version, we can let the state machine directly access dynamodb, like the codes below:
 
 "Create Registrar":{
+
 ​         "Type": "Task",
+
 ​            "Resource": "arn:aws:states:::dynamodb:putItem",
+
 ​            "Parameters": {
+
 ​                "TableName": "Registrar",
+
 ​                "Item": {
+
 ​                  "department": {
+
 ​                    "S.\$": "\$.department"
+
 ​                  },
+
 ​                  "offeringId": {
+
 ​                    "S.\$": "\$.courseId"
+
 ​                  },
+
 ​                  "offeringType": {
+
 ​                    "S": "Course"
+
 ​                  },
+
 ​                  "perUnitPrice": {
+
 ​                    "N": "1500"
+
 ​                  },
+
 ​                  "registrationId": {
+
 ​                    "S.\$": "\$.courseId"
+
 ​                  }
+
 ​                }
+
 ​            },
+
 ​            "ResultPath": "$.DynamoDB",
+
 ​          "Next": "Save Board"
+
 ​      },
 
-Regarding the BONUS, I use a lambda function to expose a POST url and replace the previous task with codes below :
+
+
+Regarding the BONUS, I use a lambda function to expose a POST url and replace the previous task with code below :
 
  "Create Registrar":{
+
 ​        "Type": "Task",
+
 ​        "Resource": "arn:aws:lambda:us-east-1:599961460399:function:CreateRegistrar",
+
 ​        "Next": "Save Board"
+
   },
 
 
